@@ -1,5 +1,6 @@
 #Lab1
 
+##Pierwsza część
 ```sql
 -- Zadanie 1
 
@@ -98,9 +99,10 @@ WHERE id_pracownika = (
 );
 
 select * from pracownik;
-
+```
 
 ##Druga część
+```sql
 
 create table uczelnia (
 id int auto_increment primary key,
