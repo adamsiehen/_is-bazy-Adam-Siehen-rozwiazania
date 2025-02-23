@@ -1,6 +1,6 @@
 #Lab1
 
-##Pierwsza część
+Pierwsza część
 ```sql
 -- Zadanie 1
 
@@ -101,7 +101,7 @@ WHERE id_pracownika = (
 select * from pracownik;
 ```
 
-##Druga część
+Druga część
 ```sql
 
 create table uczelnia (
