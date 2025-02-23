@@ -20,3 +20,15 @@ Właściciel repozytorium: Adam Sieheń
 1. Elem1
 1. Elem2
 1. Elem3
+
+
+# Przykładowy format zapisywania rozwiązań.
+
+## Rozwiązanie zadań lab 1, część 1
+
+
+**Zadanie 1**
+```sql
+# lub zadanie 1.1
+SELECT * FROM osoba;
+```
