@@ -1,6 +1,6 @@
 #Lab_0
 
-''sql
+'''sql
 create table osoba (id int);
 select * from osoba;
 describe osoba;
@@ -32,4 +32,4 @@ INSERT INTO osoba VALUES
  
 ALTER TABLE osoba ADD COLUMN data_urodzenia DATE AFTER wiek;
 ALTER TABLE osoba ADD COLUMN data_urodzenia DATE FIRST wiek;
-''
+'''
