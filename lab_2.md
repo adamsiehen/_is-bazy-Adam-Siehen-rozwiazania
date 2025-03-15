@@ -1,4 +1,4 @@
-#Lab 2
+# Lab 2
 ```sql
 select * from pracownik;
 
