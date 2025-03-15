@@ -69,7 +69,7 @@ select * from pracownik_kopia_2;
 ```sql
 select nazwisko from pracownik order by nazwisko ASC;
 ```
-# Zadanie 2
+## Zadanie 2
 ```sql
 -- Z tabeli pracownik wyświetl imie, nazwisko, pensję dla pracowników urodzonych po roku 1979.
 select
@@ -81,30 +81,30 @@ from pracownik
 where year(data_urodzenia) > 1979
 ;
 ```
-# Zadanie 3
+## Zadanie 3
 ```sql
 -- Z tabeli pracownik wyświetl wszystkie informacje dla pracowników z pensją pomiędzy 3500 a 5000.
 SELECT * 
 FROM pracownik 
 WHERE pensja BETWEEN 3500 AND 5000;
 ```
-# Zadanie 4
+## Zadanie 4
 ```sql
 -- Z tabeli stan_magazynowy wyświetl towary, których ilość jest większa niż 10.
 select * from stan_magazynowy where ilosc > 10;
 ```
-# Zadanie 5
+## Zadanie 5
 ```sql
 -- Z tabeli towar wyświetl wszystkie towary, których nazwa zaczyna się od A, B lub C.
 SELECT * FROM towar WHERE nazwa_towaru REGEXP '^[ABC]';
 ```
-# Zadanie 6
+## Zadanie 6
 ```sql
 -- Z tabeli klient wyświetl wszystkich klientów indywidualnych (nie firmy).
 select * from klient where czy_firma = 0;
 ```
 
-# Notatka
+### Notatka
 ```sql
 # ograniczenie do 5 elemtów
 select * from zamowienie limit 5;
@@ -114,17 +114,17 @@ select * from zamowienie limit 10, 5;
 create table is_siehena.nowa_tabela as select * from zamowienie;
 select * from is_siehena.nowa_tabela;
 ```
-# Zadanie 7
+## Zadanie 7
 ```sql
 -- Z tabeli zamowienie wyświetl 10 najnowszych zamówień.
 select * from zamowienie order by data_zamowienia DESC limit 10;
 ```
-# Zadanie 8
+## Zadanie 8
 ```sql
 -- Z tabeli pracownik wyświetl 5 najmniej zarabiających pracowników.
 select * from pracownik order by pensja ASC limit 5;
 ```
-# Zadanie 9
+## Zadanie 9
 ```sql
 -- Z tabeli towar wyświetl 10 najdroższych towarów, których nazwa nie zawiera litery 'a'.
 SELECT * 
@@ -133,7 +133,7 @@ WHERE nazwa_towaru NOT LIKE '%a%'
 ORDER BY cena_zakupu DESC 
 LIMIT 10;
 ```
-# Zadanie 10
+## Zadanie 10
 ```sql
 -- Z tabeli towar wyświetl towar, których jednostka miary to 'szt', posortuj po nazwie (ad A do Z) następnie po cenie zakupu malejąco.
 SELECT towar.nazwa_towaru, towar.cena_zakupu 
@@ -143,12 +143,12 @@ JOIN jednostka_miary ON stan_magazynowy.jm = jednostka_miary.id_jednostki
 WHERE jednostka_miary.nazwa = 'szt'
 ORDER BY towar.nazwa_towaru ASC, towar.cena_zakupu DESC;
 ```
-# Zadanie 11
+## Zadanie 11
 ```sql
 -- Stwórz nową tabelę o nazwie towary_powyzej_100, do której wstaw towary, których cena jest większa równa 100. Użyj CREATE ... SELECT.
 create table is_siehena.towary_powyzej_100 as select * FROM towar where towar.cena_zakupu > 100;
 ```
-# Zadanie 12
+## Zadanie 12
 ```sql
 -- Stwórz nową tabelę o nazwie pracownik_50_plus na podstawie tabeli pracownik z wykorzystaniem LIKE. Wstaw do tej tabeli 
 -- wszystkie rekordy z tabeli pracownik gdzie wiek pracownika jest większy równy 50 lat.
@@ -157,7 +157,7 @@ SELECT *
 FROM pracownik 
 WHERE data_urodzenia <= DATE_SUB(CURDATE(), INTERVAL 50 YEAR);
 ```
-# Przykłady:
+### Przykłady:
 ```sql
 SELECT imie, nazwisko, nazwa FROM pracownik INNER JOIN dzial ON dzial.id_dzialu=pracownik.dzial;
 
@@ -173,7 +173,7 @@ SELECT imie, nazwisko FROM pracownik WHERE id_pracownika IN (SELECT pracownik_id
 SELECT imie, nazwisko FROM pracownik WHERE id_pracownika NOT IN (SELECT pracownik_id_pracownika FROM zamowienie);
 ```
 # Część 2
-# Zadanie 1
+## Zadanie 1
 ```sql
 -- Wyświetl imie, nazwisko i nazwę działu każdego pracownika.
 select
@@ -186,7 +186,7 @@ join dzial d on p.dzial = d.id_dzialu;
 select * from typ_adresu;
 select * from adres_klienta;
 ```
-# Zadanie 2
+## Zadanie 2
 ```sql
 -- Wyświetl nazwę towaru, nazwę kategorii oraz ilość towaru i posortuj dane po kolumnie ilość malejąco.
 SELECT t.nazwa_towaru, k.nazwa_kategori, s.ilosc
@@ -195,7 +195,7 @@ JOIN kategoria k ON t.kategoria = k.id_kategori
 JOIN stan_magazynowy s ON t.id_towaru = s.towar
 ORDER BY s.ilosc DESC;
 ```
-# Zadanie 3
+## Zadanie 3
 ```sql
 -- Wyświetl wszystkie anulowane zamówienia.
 SELECT * 
@@ -203,7 +203,7 @@ FROM zamowienie z
 JOIN status_zamowienia sz ON z.status_zamowienia = sz.id_statusu_zamowienia
 WHERE sz.nazwa_statusu_zamowienia = 'Anulowane';
 ```
-# Zadanie 4
+## Zadanie 4
 ```sql
 -- Wyświetl wszystkich klientów, których adres podstawowy znajduje się w miejscowości Olsztyn.
 select *
@@ -212,7 +212,7 @@ join adres_klienta ak on k.id_klienta = ak.klient
 join typ_adresu ta on ak.typ_adresu = ta.id_typu
 where ta.nazwa = 'podstawowy' and ak.miejscowosc = 'Olsztyn';
 ```
-# Zadanie 5
+## Zadanie 5
 ```sql
 -- Wyświetl wszystkie nazwy jednostek miary, które nie zostały nigdy wykorzystane w tabeli stan_magazynowy.
 SELECT jm.nazwa
@@ -220,7 +220,7 @@ FROM jednostka_miary jm
 LEFT JOIN stan_magazynowy sm ON jm.id_jednostki = sm.jm
 WHERE sm.jm IS NULL;
 ```
-# Zadanie 6
+## Zadanie 6
 ```sql
 -- Wyświetl numer zamówienia, nazwę towaru, ilosc i cenę dla zamówień złożonych w 2018 roku.
 SELECT z.numer_zamowienia, t.nazwa_towaru, pz.ilosc, pz.cena
@@ -229,7 +229,7 @@ JOIN zamowienie z ON pz.zamowienie = z.id_zamowienia
 JOIN towar t ON pz.towar = t.id_towaru
 WHERE YEAR(z.data_zamowienia) = 2018;
 ```
-# Zadanie 7
+## Zadanie 7
 ```sql
 -- Stwórz nową tabelę o nazwie towary_full_info, w której znajdą się kolumny nazwa_towaru, 
 -- cena_zakupu, kategoria(nazwa),ilosc , jednostka miary(nazwa).
@@ -240,7 +240,7 @@ JOIN kategoria k ON t.kategoria = k.id_kategori
 JOIN stan_magazynowy s ON t.id_towaru = s.towar
 JOIN jednostka_miary jm ON s.jm = jm.id_jednostki;
 ```
-# Zadanie 8
+## Zadanie 8
 ```sql
 -- Wyświetl pozycje zamówień dla 5 najstarszych zamówień.
 SELECT pz.*
@@ -249,7 +249,7 @@ JOIN zamowienie z ON pz.zamowienie = z.id_zamowienia
 ORDER BY z.data_zamowienia ASC
 LIMIT 5;
 ```
-# Zadanie 9
+## Zadanie 9
 ```sql
 -- Wyświetl wszystkie zamówienia, które mają status inny niż zrealizowane.
 SELECT * 
@@ -257,7 +257,7 @@ FROM zamowienie z
 JOIN status_zamowienia sz ON z.status_zamowienia = sz.id_statusu_zamowienia
 WHERE sz.nazwa_statusu_zamowienia <> 'Zrealizowane';
 ```
-# Zadanie 10
+## Zadanie 10
 ```sql
 -- Wyświetl wszystkie adresy, których kod został niepoprawnie zapisany.
 SELECT * 
