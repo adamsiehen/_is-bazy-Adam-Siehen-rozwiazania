@@ -65,7 +65,7 @@ select * from pracownik_kopia;
 select * from pracownik_kopia_2;
 ```
 # Część 1
-# Zadanie 1
+## Zadanie 1
 ```sql
 select nazwisko from pracownik order by nazwisko ASC;
 ```
