@@ -220,6 +220,12 @@ FROM jednostka_miary jm
 LEFT JOIN stan_magazynowy sm ON jm.id_jednostki = sm.jm
 WHERE sm.jm IS NULL;
 ```
+2 sposób
+```sql
+select jm.nazwa from jednostka_miary jm
+where jm.id_jednostki not in
+(select jm from stan_magazynowy);
+```
 ## Zadanie 6
 ```sql
 -- Wyświetl numer zamówienia, nazwę towaru, ilosc i cenę dla zamówień złożonych w 2018 roku.
