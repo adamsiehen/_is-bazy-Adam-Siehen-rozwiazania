@@ -227,6 +227,7 @@ ORDER BY
 ```
 ## zadanie 6
 ```sql
+-- Wyświetl dotychczasowy dochód firmy biorąc pod uwagę tylko zamówienia zrealizowane.
 # bez tabeli status_zamowienia
 SELECT 
     SUM(pz.ilosc * pz.cena) AS dochod
