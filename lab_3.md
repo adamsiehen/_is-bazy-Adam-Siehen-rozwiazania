@@ -282,6 +282,7 @@ from towar
 inner join stan_magazynowy on towar.id_towaru=stan_magazynowy.towar
 inner join kategoria on kategoria.id_kategori=towar.kategoria
 group by kategoria.id_kategori;
+```
 ```sql
 # z sumami częściowymi (with rollup), grupowanie po roku i kwartale
 select
